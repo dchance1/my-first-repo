@@ -1,14 +1,15 @@
 package cop2805;
 
 class FibDynamic extends Thread implements Runnable {
+	// Fibonacci sequence using dynamic method
 	String name;
 
 	public void run() {
-		
+
 		Long startTime = System.currentTimeMillis();
 		int fibResult = fibonacci(40);
 		Long EndTime = System.currentTimeMillis();
-		
+
 		Long totalTime = EndTime - startTime;
 		System.out.printf(name + " Thread found the answer: " + fibResult + " in " + totalTime + "ms\n");
 	}
@@ -33,14 +34,15 @@ class FibDynamic extends Thread implements Runnable {
 }
 
 class FibRecursion extends Thread implements Runnable {
+	// Fibonnaci sequence using recursion
 	String name;
 
 	public void run() {
-		
+
 		Long startTime = System.currentTimeMillis();
 		int fibResult = fibonacci(40);
 		Long EndTime = System.currentTimeMillis();
-		
+
 		Long totalTime = EndTime - startTime;
 		System.out.printf(name + " Thread found the answer: " + fibResult + " in " + totalTime + "ms\n");
 	}
@@ -61,6 +63,10 @@ class FibRecursion extends Thread implements Runnable {
 public class ThreadsExample {
 
 	public static void main(String[] args) {
+		/*
+		 * Program to show the difference between recursion and dynamic functions and
+		 * the fact that how threads work meaning they can run simultaneously
+		 */
 		Thread t1 = new Thread(new FibDynamic("Dynamic"));
 		Thread t2 = new Thread(new FibRecursion("Recursion"));
 
